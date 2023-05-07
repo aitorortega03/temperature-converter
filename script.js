@@ -8,12 +8,12 @@ const buttonConvert = document.getElementById('convert');
 
 buttonConvert.addEventListener('click', () => {
 
-    const tempFromValue = document.getElementById("temp-from").value;
-    const tempToValue = document.getElementById("temp-to").value;
-    const tempToConvertString = document
+    let tempFromValue = document.getElementById("temp-from").value;
+    let tempToValue = document.getElementById("temp-to").value;
+    let tempToConvertString = document
       .getElementById("temp-input")
       .value.replace(",", ".");
-    const tempToConvert = Number(tempToConvertString);
+    let tempToConvert = Number(tempToConvertString);
 
     let tempConverted = 0;
     
@@ -45,6 +45,19 @@ buttonConvert.addEventListener('click', () => {
         tempConverted = tempToConvert;
     }
 
-    document.getElementById('result-text').textContent = tempConverted + " " + tempToValue[0].toUpperCase();
+    document.getElementById("result-text").textContent =
+      tempConverted + " " + tempToValue[0].toUpperCase();
+
+});
+
+const buttonClear = document.getElementById('clear');
+
+buttonClear.addEventListener('click', () =>{
+    
+    let tempInput = document.getElementById('temp-input');
+
+    if (tempInput.value){
+        tempInput.value = "";
+    }
 
 });
